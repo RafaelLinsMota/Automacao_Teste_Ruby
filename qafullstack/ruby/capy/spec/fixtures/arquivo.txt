@@ -1,0 +1,138 @@
+=======================================
+Comandos Definity
+=======================================
+
+Dac 01 - 02 - 03 
+zayracan
+Algar2019
+------------------
+Definity dac1 e dac3
+
+Login: andersonsdc
+
+Senha: 0707Asc1986
+
+Senha dac2: Algar2018
+
+
+----------------------------------------------------------------------------
+Ver e alterar id:
+	> ch age 
+
+Configurar ramal:
+	> ch st ramal
+
+Derrubar o ramal:
+	> bus st ramal 
+ch 
+Voltar o ramal:
+	> rel st ramal
+
+Verificar se a matricula já está sendo utilizada:
+	> disp st -disp age id
+
+Alterar a mensagem do Avaya:
+	> ch st ramal 
+
+Monitorar ramal: 
+	> li trace st ramal 
+
+Verificar se agente esta logado em outro ramal(erro de toolbar 1101):
+	> st st id
+
+Criar id temporario:
+	> dup age espelho st 98000
+
+Criar id temporario (filtrar):
+	> dup age espelho st faixa (ex.: 95000) count quantidade
+
+Sair do definity:
+	> logoff e yes
+
+Deletar: 
+	> rem age id
+
+Procurar ramal:
+	> li st 36800 count 100
+
+Grupos: 
+	> li use extension ( ramal ) e para adicionar fica ch pi ( grupo )
+
+Limpar caixa postal:
+	> clear amw all ramal
+
+DELETAR RAMAL
+
+	> rem st ramal
+
+CRIAR RAMAL
+
+	> dup st ramal espelho
+
+VERIFICAR ID
+
+        > disp age ID
+
+CRIAR SENHA TELEFONICA
+
+        > ch auth 
+
+
+
+DUPLICAR RAMAL
+
+	dup st ramal em questão start ramal count (quantidade de ramal que será criada) 1
+	exe.: dup st 50010 start 50010 count 1 incluir senha. 
+
+-----------------------
+
+
+
+Comandos Definity
+rem st + ramal <> Remover o Ramal
+rem age + id <> Remover Id Telefônico
+st st + ramal <> Mostra o Status do Ramal
+ch age + Id Telefônico <> Altera Configuração do Id
+ch st + ramal <> Altera Configuração do Ramal
+ch aut + senha proposta <> Cria/Verifica senha de ligação externa (Senha de 6 digitos)
+disp st + ramal <>mostra status do ramal
+dup age + Id telefônico espelho + st + Id a ser criado <> Criar Id Telecom
+t 16 (numero de Id's) <> Criar Id Telecom "no maximo 16"
+dup st + ramal espelho + st + ramal a ser criado + count 10 (numero de ramais) <> Cria ramal conforme espelho
+add st + ramal <> Criar um ramal sem espelho
+add age + id <> Criar id Telefônico sem espelho
+bus st + ramal <> Derruba ramal
+rel st + ramal <> Levanta ramal
+bus port + porta <> Derruba porta do ramal
+rel port + porta <> Levanta porta do ramal
+st st + Id <> Olhar em "CF Destination Ext" para verificar se o agente está logado. Caso esteja logado irá aparecer o número do ramal
+li extension + ramal + count 100 <> Lista 100 faixas de ramais.
+ch abb group + x <> Adiciona o o serviço de Cadeado Eletrônico no Ramal
+li groups + Ramal <> Verifica se o ramal faz parte de um Grupo de Captura
+ch pi + Grupo <> Adiciona ramal em um Grupo de Captura. Após adicionado o ramal no grupo, configurar algum botão do ramal com a tecla "call-pkup"
+ch cover pa <> Configurações da cover path
+add pick next - cria proximo grupo de capitura
+dup age ( espelho ) = cmd para espelhar id
+disp age ( numero do id ) = cmd para realizar consulta de id
+add pickup-group next <> criar novo grupo
+li groups + nº do Ramal <> Verificar se o ramal ja esta em algum grupo de capitura
+
+
+------------------------------------------------------------------------------------------
+
+dup age + espelho + st 90000 count ( NUMEROS DE RAMAIS PRA SER CRIADOS )  ( CRIAR ID ) 
+
+
+
+
+UTTON ASSIGNMENTS
+ 1: call-appr                            5: auto-in            Grp:
+ 2: call-appr                            6: release
+ 3: call-appr                            7:
+ 4: autodial   Number: 55213             8:     
+------------------------------------------------------------------------------------------------------------------------
+
+call-appr                            5: after-call         Grp:
+ 2: q-calls    Grp: 293                  6: release
+ 3: q-calls    Grp: 275                  7: call-appr
+ 4: auto-in            Grp:              8: call-pkup          
