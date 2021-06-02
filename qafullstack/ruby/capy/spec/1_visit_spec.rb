@@ -1,5 +1,5 @@
 
-describe 'Meu primneiro script' do
+describe 'VISITANDO A PAGINA', :visit do
 
     it 'visitar a página' do    
         visit 'https://training-wheels-protocol.herokuapp.com/'

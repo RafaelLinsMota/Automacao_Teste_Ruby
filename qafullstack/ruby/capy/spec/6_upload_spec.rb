@@ -1,4 +1,4 @@
-describe 'Upload', :upload do
+describe 'UPLOAD', :upload do
 
     before(:each) do
         visit 'https://training-wheels-protocol.herokuapp.com/upload'

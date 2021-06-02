@@ -1,4 +1,4 @@
-describe 'Caida de opções', :dropdown do
+describe 'DROPBOX', :dropdown do
     
     it 'Item especifico simples', :simples do
         visit 'https://training-wheels-protocol.herokuapp.com/dropdown'

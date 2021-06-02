@@ -1,4 +1,4 @@
-describe 'Caixas de seleção', :checkbox do
+describe 'CHECKBOXES', :checkbox do
 
     before(:each) do
         visit 'https://training-wheels-protocol.herokuapp.com/checkboxes'
